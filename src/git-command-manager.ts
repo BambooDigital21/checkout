@@ -331,6 +331,7 @@ class GitCommandManager {
 
   async tryClean(): Promise<boolean> {
     const output = await this.execGit(['clean', '-ffdx'], true)
+    core.debug(output.stdout)
     return output.exitCode === 0
   }
 

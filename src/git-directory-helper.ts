@@ -81,7 +81,7 @@ export async function prepareExistingDirectory(
 
       // Clean
       if (clean) {
-        core.startGroup('Cleaning the repository')
+        core.startGroup('Cleaning the repository AQUII')
         if (!(await git.tryClean())) {
           core.debug(
             `The clean command failed. This might be caused by: 1) path too long, 2) permission issue, or 3) file in use. For futher investigation, manually run 'git clean -ffdx' on the directory '${repositoryPath}'.`
