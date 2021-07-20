@@ -80,24 +80,24 @@ export async function prepareExistingDirectory(
       core.endGroup()
 
       // Clean
-      if (clean) {
-        core.startGroup('Cleaning the repository AQUII')
-        if (!(await git.tryClean())) {
-          core.debug(
-            `The clean command failed. This might be caused by: 1) path too long, 2) permission issue, or 3) file in use. For futher investigation, manually run 'git clean -ffdx' on the directory '${repositoryPath}'.`
-          )
-          remove = true
-        } else if (!(await git.tryReset())) {
-          remove = true
-        }
-        core.endGroup()
+      // if (clean) {
+      //   core.startGroup('Cleaning the repository AQUII')
+      //   if (!(await git.tryClean())) {
+      //     core.debug(
+      //       `The clean command failed. This might be caused by: 1) path too long, 2) permission issue, or 3) file in use. For futher investigation, manually run 'git clean -ffdx' on the directory '${repositoryPath}'.`
+      //     )
+      //     remove = true
+      //   } else if (!(await git.tryReset())) {
+      //     remove = true
+      //   }
+      //   core.endGroup()
 
-        if (remove) {
-          core.warning(
-            `Unable to clean or reset the repository. The repository will be recreated instead.`
-          )
-        }
-      }
+      //   if (remove) {
+      //     core.warning(
+      //       `Unable to clean or reset the repository. The repository will be recreated instead.`
+      //     )
+      //   }
+      // }
     } catch (error) {
       core.warning(
         `Unable to prepare the existing repository. The repository will be recreated instead.`
